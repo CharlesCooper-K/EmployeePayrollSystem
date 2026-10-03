@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class EmployeePayrollSystem {
 	public static void main(String[] args) {
+		// declare and initialize variables
 		Scanner input = new Scanner(System.in);
 		int choice, employeeId, searchId;
 		String name = "";
@@ -12,7 +13,8 @@ public class EmployeePayrollSystem {
 		double hoursWorked;
 		Employee employees = new Employee();
 		PayrollSystem payroll = new PayrollSystem();
-		
+
+		// loop through system
 		do {
 			System.out.println("\n===== Payroll System =====");
 			System.out.println("1. Add Employee\n2. View Employee\n3. Calculate Payroll\n4. Display All Employees\n5. Remove Employee\n6. Exit");
@@ -21,6 +23,7 @@ public class EmployeePayrollSystem {
 			
 			switch (choice) {
 			case 1: 
+				// case to create an employee and set values
 				System.out.print("Enter Employee Name: ");
 				name = input.next();
 				employees.setName(name);
@@ -46,6 +49,7 @@ public class EmployeePayrollSystem {
 				break;
 				
 			case 2:
+				// case to select and view employee's information by their id
 				System.out.print("Enter Employee Id: ");
 				searchId = input.nextInt();
 				
@@ -61,16 +65,19 @@ public class EmployeePayrollSystem {
 				break;
 				
 			case 3:
+				// case to calculate and print out payroll
 				double totalPayroll = payroll.calculatePayroll();
 				
-				System.out.printf("Total Payroll: ", totalPayroll);
+				System.out.printf("Total Payroll: %.2f", totalPayroll);
 				break;
 				
 			case 4:
+				// case to display all the employees in the payroll
 				payroll.displayPayroll();
 				break;
 				
 			case 5:
+				// case to remove an employee
 				System.out.print("Enter the Employee ID: ");
 				searchId = input.nextInt();
 				
@@ -90,6 +97,7 @@ public class EmployeePayrollSystem {
 				default:
 					System.out.println("Invalid choice");
 			}
+			// ends loops if inputted by user
 		} while (choice !=6);
 	}
 }
